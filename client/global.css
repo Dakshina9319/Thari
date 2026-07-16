@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Serif+Tamil:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Thari (தறி) — Tamil Handloom Heritage Theme
+   * Palette: Temple Maroon · Silk Gold · Cotton Cream · Indigo Dye · Palm Leaf · Clay · Terracotta
+   */
+  :root {
+    /* ── Core palette ── */
+    --temple-maroon:   350 60% 29%;   /* #7B1E2B */
+    --silk-gold:       41  55% 51%;   /* #C89B3C */
+    --cotton-cream:    43  47% 93%;   /* #F8F3E8 */
+    --indigo-dye:      195 41% 25%;   /* #244C5A */
+    --palm-leaf:       74  35% 35%;   /* #6C7A3A */
+    --clay-brown:      27  40% 39%;   /* #8B5E3C */
+    --terracotta:      16  54% 49%;   /* #C45A38 */
+
+    /* ── shadcn/ui semantic tokens ── */
+    --background:      43  47% 93%;   /* Cotton Cream */
+    --foreground:      195 41% 15%;   /* Dark Indigo */
+
+    --card:            0   0%  100%;
+    --card-foreground: 195 41% 15%;
+
+    --popover:         0   0%  100%;
+    --popover-foreground: 195 41% 15%;
+
+    --primary:         350 60% 29%;   /* Temple Maroon */
+    --primary-foreground: 43 47% 95%;
+
+    --secondary:       195 41% 25%;   /* Indigo Dye */
+    --secondary-foreground: 43 47% 95%;
+
+    --muted:           43  30% 87%;
+    --muted-foreground: 195 20% 45%;
+
+    --accent:          41  55% 51%;   /* Silk Gold */
+    --accent-foreground: 195 41% 10%;
+
+    --destructive:     16  54% 49%;   /* Terracotta */
+    --destructive-foreground: 43 47% 95%;
+
+    --border:          43  25% 82%;
+    --input:           43  25% 82%;
+    --ring:            350 60% 29%;
+
+    --radius:          0.625rem;
+
+    /* ── Sidebar tokens ── */
+    --sidebar-background: 350 60% 24%;
+    --sidebar-foreground: 43  47% 90%;
+    --sidebar-primary:    41  55% 60%;
+    --sidebar-primary-foreground: 350 60% 15%;
+    --sidebar-accent:     350 60% 32%;
+    --sidebar-accent-foreground: 43 47% 95%;
+    --sidebar-border:     350 60% 20%;
+    --sidebar-ring:       41  55% 51%;
+
+    /* ── Legacy custom vars (keep for existing Tailwind usage) ── */
+    --gold:    41  55% 51%;
+    --silk:    43  47% 93%;
+    --indigo:  195 41% 25%;
+    --emerald: 74  35% 35%;
+    --saffron: 16  54% 49%;
+  }
+
+  .dark {
+    --background:      195 41% 10%;
+    --foreground:      43  47% 90%;
+    --card:            195 41% 14%;
+    --card-foreground: 43  47% 90%;
+    --popover:         195 41% 14%;
+    --popover-foreground: 43 47% 90%;
+    --primary:         41  55% 55%;
+    --primary-foreground: 195 41% 10%;
+    --secondary:       350 60% 35%;
+    --secondary-foreground: 43 47% 90%;
+    --muted:           195 35% 18%;
+    --muted-foreground: 43 30% 60%;
+    --accent:          41  55% 45%;
+    --accent-foreground: 43 47% 10%;
+    --destructive:     16  54% 55%;
+    --destructive-foreground: 43 47% 90%;
+    --border:          195 35% 20%;
+    --input:           195 35% 20%;
+    --ring:            41  55% 51%;
+    --sidebar-background: 195 41% 8%;
+    --sidebar-foreground: 43 47% 85%;
+    --sidebar-primary:    41 55% 55%;
+    --sidebar-accent:     195 41% 14%;
+    --sidebar-border:     195 41% 12%;
+    --gold:    41  55% 60%;
+    --silk:    195 20% 20%;
+    --indigo:  195 41% 55%;
+    --emerald: 74  35% 50%;
+    --saffron: 16  54% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  .font-tamil {
+    font-family: 'Noto Serif Tamil', serif;
+  }
+}
+
+/* ── Gradient utilities ── */
+@layer utilities {
+  .text-gradient-gold {
+    color: hsl(var(--silk-gold));
+  }
+
+  .text-gradient-maroon {
+    color: hsl(var(--temple-maroon));
+  }
+
+  .bg-temple-maroon   { background-color: hsl(var(--temple-maroon)); }
+  .bg-silk-gold       { background-color: hsl(var(--silk-gold)); }
+  .bg-cotton-cream    { background-color: hsl(var(--cotton-cream)); }
+  .bg-indigo-dye      { background-color: hsl(var(--indigo-dye)); }
+  .bg-palm-leaf       { background-color: hsl(var(--palm-leaf)); }
+  .bg-clay-brown      { background-color: hsl(var(--clay-brown)); }
+  .bg-terracotta      { background-color: hsl(var(--terracotta)); }
+
+  .text-temple-maroon { color: hsl(var(--temple-maroon)); }
+  .text-silk-gold     { color: hsl(var(--silk-gold)); }
+  .text-indigo-dye    { color: hsl(var(--indigo-dye)); }
+  .text-palm-leaf     { color: hsl(var(--palm-leaf)); }
+  .text-terracotta    { color: hsl(var(--terracotta)); }
+
+  .border-silk-gold   { border-color: hsl(var(--silk-gold)); }
+
+  /* ── Woven border texture ── */
+  .woven-border {
+    border: 2px solid hsl(var(--silk-gold));
+    position: relative;
+  }
+  .woven-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid hsl(var(--silk-gold) / 0.3);
+    pointer-events: none;
+  }
+
+  /* ── Card hover lift ── */
+  .card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px hsl(var(--temple-maroon) / 0.15);
+  }
+
+  /* ── Loom thread animation ── */
+  .loom-thread {
+    animation: weave 2.5s ease-in-out infinite;
+  }
+  @keyframes weave {
+    0%, 100% { transform: scaleY(1) translateY(0); }
+    50%       { transform: scaleY(0.92) translateY(2px); }
+  }
+
+  /* ── Sound pulse for work tracker ── */
+  .sound-pulse {
+    animation: soundPulse 1s ease-in-out infinite;
+  }
+  @keyframes soundPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.6; transform: scale(1.08); }
+  }
+
+  /* ── Respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .loom-thread,
+    .sound-pulse,
+    .card-lift,
+    [class*="animate-"] {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ── Legacy helpers ── */
+  .text-gradient {
+    @apply text-gradient-maroon;
+  }
+  .bg-gradient-primary {
+    background-color: hsl(var(--temple-maroon));
+  }
+  .bg-gradient-gold {
+    background-color: hsl(var(--silk-gold));
+  }
+
+  /* ── Emerald / saffron aliases still needed by pages ── */
+  .text-emerald { color: hsl(var(--palm-leaf)); }
+  .bg-emerald   { background-color: hsl(var(--palm-leaf)); }
+  .text-indigo  { color: hsl(var(--indigo-dye)); }
+  .bg-indigo    { background-color: hsl(var(--indigo-dye)); }
+  .text-saffron { color: hsl(var(--terracotta)); }
+  .bg-saffron   { background-color: hsl(var(--terracotta)); }
+  .text-gold    { color: hsl(var(--silk-gold)); }
+  .bg-gold      { background-color: hsl(var(--silk-gold)); }
+}

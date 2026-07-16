@@ -1,0 +1,67 @@
+/* Minimal CSS for low‑bandwidth, premium UI */
+
+:root {
+  /* Mood‑board palette */
+  --color-temple-maroon: #7B1E2B;   /* Primary */
+  --color-silk-gold: #C89B3C;      /* Accent */
+  --color-cotton-cream: #F8F3E8;   /* Background */
+  --color-indigo-dye: #244C5A;     /* Secondary */
+  --color-palm-leaf: #6C7A3A;      /* Success */
+  --color-clay-brown: #8B5E3C;    /* Warning */
+  --color-terracotta: #C45A38;    /* Danger */
+}
+
+/* Global resets & base */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--color-cotton-cream);
+  color: var(--color-indigo-dye);
+}
+
+/* Buttons */
+[data-theme="light"] .button-primary {
+  background: var(--color-temple-maroon);
+  color: #fff;
+}
+[data-theme="light"] .button-secondary {
+  background: var(--color-indigo-dye);
+  color: #fff;
+}
+[data-theme="light"] .button-accent {
+  background: var(--color-silk-gold);
+  color: #fff;
+}
+
+/* Card surfaces */
+.card {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  padding: 1rem;
+}
+
+/* Hover micro‑animations */
+.button-primary:hover,
+.button-secondary:hover,
+.button-accent:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Tooltip */
+.tooltip {
+  background: var(--color-indigo-dye);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+}
+
+/* Responsive utilities (no Tailwind) */
+@media (max-width: 640px) {
+  .grid-cols-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+/* Low‑bandwidth utility – hide heavy images */
+.img‑lazy { display: none; }
